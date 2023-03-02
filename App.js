@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/* eslint-disable prettier/prettier */
+import React, { Component } from 'react';
+import {
+  Alert,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
+import Button from './src/components/Button';
+export default class App extends Component {
+  state={
+    contador:80
+  }
+  apertou= ()=>{
+    this.setState({contador: this.state.contador+1})
+  }
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  render() {
+    return (
+      <SafeAreaView>
+        <StatusBar barStyle={'dark-content'} />
+        <ScrollView>
+          <Text>{this.state.contador}</Text>
+          <TouchableOpacity onPress={this.apertou}>
+        <Text>Somar</Text>
+      </TouchableOpacity>
+          <Button title="marcos" >
+            <Text>Button</Text>
+          </Button>
+          <Text>teste</Text>
+        </ScrollView>
+      </SafeAreaView>
+    )
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
